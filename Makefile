@@ -1,4 +1,4 @@
-CXX = g++ -std=c++11
+CXX = g++ -std=c++14
 OPTS = -g -O2
 WARN = -Wall -Werror
 DEPS = -MMD -MF $*.d

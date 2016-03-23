@@ -30,7 +30,9 @@ namespace mystl {
 /// @param b Second value
 template<typename T>
   void swap(T& a, T& b) {
-    /// @todo Implement swapping values
+    T temp = a;
+    a = b;
+    b = temp;
   }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -50,6 +52,20 @@ template<class RandomAccessIterator, class Compare>
   void bubble_sort(RandomAccessIterator first, RandomAccessIterator last,
       Compare comp) {
     /// @todo Implement Bubble sort
+    bool isSorted = false;
+    while (!isSorted) {
+        RandomAccessIterator i = first;
+        isSorted = true;
+        while (i != last-1) {
+            RandomAccessIterator j = i + 1;
+            if (!comp(*i, *j)) {
+                swap(*i, *j);
+                isSorted = false;
+            }
+            ++i;
+        }
+        --last;
+    }
   }
 
 ////////////////////////////////////////////////////////////////////////////////
