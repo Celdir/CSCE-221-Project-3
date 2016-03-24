@@ -51,7 +51,6 @@ template<typename T>
 template<class RandomAccessIterator, class Compare>
   void bubble_sort(RandomAccessIterator first, RandomAccessIterator last,
       Compare comp) {
-    /// @todo Implement Bubble sort
     bool isSorted = false;
     while (!isSorted) {
         RandomAccessIterator i = first;
@@ -84,9 +83,20 @@ template<class RandomAccessIterator, class Compare>
 template<class RandomAccessIterator, class Compare>
   void selection_sort(RandomAccessIterator first, RandomAccessIterator last,
       Compare comp) {
+      while (first != last) {
+          RandomAccessIterator i = first;
+          RandomAccessIterator smallest = i;
+          while (i != last) {
+              if (comp(*i, *smallest)) smallest = i;
+              ++i;
+          }
+          swap(*first, *smallest);
+          ++first;
+      }
   }
 
 ////////////////////////////////////////////////////////////////////////////////
+//p
 /// @brief Sort the range [first, last) into nondecreasing order
 /// @tparam RandomAccessIterator Random Access Iterator
 /// @tparam Compare Comparator function
@@ -123,7 +133,7 @@ template<class RandomAccessIterator, class Compare>
 template<class RandomAccessIterator, class Compare>
   void slow_sort(RandomAccessIterator first, RandomAccessIterator last,
       Compare comp) {
-    /// @todo Call your slow sort of choice
+    selection_sort(first, last, comp);
   }
 
 ////////////////////////////////////////////////////////////////////////////////
