@@ -112,6 +112,16 @@ template<class RandomAccessIterator, class Compare>
 template<class RandomAccessIterator, class Compare>
   void insertion_sort(RandomAccessIterator first, RandomAccessIterator last,
       Compare comp) {
+      if (last == first+1) return;
+      RandomAccessIterator start = first;
+      while (start != last-1) {
+          RandomAccessIterator i = start + 1;
+          while (i > first && comp(*i, *(i-1))) {
+              swap(*i, *(i-1));
+              --i;
+          }
+          ++start;
+      }
   }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -133,7 +143,8 @@ template<class RandomAccessIterator, class Compare>
 template<class RandomAccessIterator, class Compare>
   void slow_sort(RandomAccessIterator first, RandomAccessIterator last,
       Compare comp) {
-    selection_sort(first, last, comp);
+    //selection_sort(first, last, comp);
+    insertion_sort(first, last, comp);
   }
 
 ////////////////////////////////////////////////////////////////////////////////
