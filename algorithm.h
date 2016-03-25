@@ -112,7 +112,6 @@ template<class RandomAccessIterator, class Compare>
 template<class RandomAccessIterator, class Compare>
   void insertion_sort(RandomAccessIterator first, RandomAccessIterator last,
       Compare comp) {
-      if (last == first+1) return;
       RandomAccessIterator start = first;
       while (start != last-1) {
           RandomAccessIterator i = start + 1;
