@@ -20,6 +20,7 @@
 
 #include <limits>
 #include <vector>
+#include <ctime>
 
 namespace mystl {
 
@@ -198,6 +199,22 @@ template<class RandomAccessIterator, class Compare>
 template<class RandomAccessIterator, class Compare>
   void quick_sort(RandomAccessIterator first, RandomAccessIterator last,
       Compare comp) {
+      std::srand(std::time(0));
+      auto pivot = first[std::rand() % (last - first)];
+      RandomAccessIterator h1 = first;
+      RandomAccessIterator h2 = last-1;
+
+      while (h1 <= h2) {
+          while (comp(*h1, pivot)) ++h1;
+          while (comp(pivot, *h2)) --h2;
+          if (h1 <= h2) {
+              swap(*h1, *h2);
+              ++h1;
+              --h2;
+          }
+      }
+      if (first < h2) quick_sort(first, h2+1, comp);
+      if (h1 < last) quick_sort(h1, last, comp);
   }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -219,7 +236,7 @@ template<class RandomAccessIterator, class Compare>
 template<class RandomAccessIterator, class Compare>
   void sort(RandomAccessIterator first, RandomAccessIterator last,
       Compare comp) {
-    /// @todo Call your fast sort of choice
+    quick_sort(first, last, comp);
   }
 
 ////////////////////////////////////////////////////////////////////////////////
