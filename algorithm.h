@@ -21,6 +21,7 @@
 #include <limits>
 #include <vector>
 #include <ctime>
+#include <typeinfo>
 
 namespace mystl {
 
@@ -178,10 +179,45 @@ namespace mystl {
     ///             defines.
     ///
     /// Merge Sort.
+
+    template<class RandomAccessIterator, class Compare>
+        void merge(RandomAccessIterator first, RandomAccessIterator split, RandomAccessIterator last, Compare comp) {
+            auto a = *first;
+            typedef decltype(a) T;
+            T n[last - first];
+            int index = 0;
+            RandomAccessIterator left_smallest = first;
+            RandomAccessIterator right_smallest = split;
+            while (index < last - first) {
+                if (right_smallest == last || (left_smallest < split && comp(*left_smallest, *right_smallest))) {
+                    n[index] = *left_smallest;
+                    ++left_smallest;
+                }
+                else if (right_smallest < last) {
+                    n[index] = *right_smallest;
+                    ++right_smallest;
+                }
+                ++index;
+            }
+
+            RandomAccessIterator place = first;
+            for (auto i : n) {
+                *place = i;
+                ++place;
+            }
+        }
+
     template<class RandomAccessIterator, class Compare>
         void merge_sort(RandomAccessIterator first, RandomAccessIterator last,
                 Compare comp) {
+            if (last - first < 2) return;
+            
+            RandomAccessIterator split = first + (last - first) / 2;
+            merge_sort(first, split, comp);
+            merge_sort(split, last, comp);
+            merge(first, split, last, comp);
         }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     /// @brief Sort the range [first, last) into nondecreasing order
@@ -236,7 +272,8 @@ namespace mystl {
     template<class RandomAccessIterator, class Compare>
         void sort(RandomAccessIterator first, RandomAccessIterator last,
                 Compare comp) {
-            quick_sort(first, last, comp);
+            //quick_sort(first, last, comp);
+            merge_sort(first, last, comp);
         }
 
     ////////////////////////////////////////////////////////////////////////////////
