@@ -89,7 +89,7 @@ void time_function(Func f, size_t max_size, string name) {
 
 /// @brief Main function to time all your functions
 int main() {
-  time_function(bubble_sort_random_sequence_k, pow(2, 15), "Bubble Sort Random Sequence");
-  time_function(slow_sort_random_sequence_k, pow(2, 17), "Slow Sort Random Sequence");
+  //time_function(bubble_sort_random_sequence_k, pow(2, 15), "Bubble Sort Random Sequence");
+  //time_function(slow_sort_random_sequence_k, pow(2, 17), "Slow Sort Random Sequence");
   time_function(sort_random_sequence_k, pow(2, 23), "Sort Random Sequence");
 }

@@ -235,7 +235,6 @@ namespace mystl {
     template<class RandomAccessIterator, class Compare>
         void quick_sort(RandomAccessIterator first, RandomAccessIterator last,
                 Compare comp) {
-            std::srand(std::time(0));
             auto pivot = first[std::rand() % (last - first)];
             RandomAccessIterator h1 = first;
             RandomAccessIterator h2 = last-1;
@@ -272,8 +271,8 @@ namespace mystl {
     template<class RandomAccessIterator, class Compare>
         void sort(RandomAccessIterator first, RandomAccessIterator last,
                 Compare comp) {
-            //quick_sort(first, last, comp);
-            merge_sort(first, last, comp);
+            quick_sort(first, last, comp);
+            //merge_sort(first, last, comp);
         }
 
     ////////////////////////////////////////////////////////////////////////////////
