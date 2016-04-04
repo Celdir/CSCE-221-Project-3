@@ -55,15 +55,13 @@ namespace mystl {
                 Compare comp) {
             bool isSorted = false;
             while (!isSorted) {
-                RandomAccessIterator i = first;
                 isSorted = true;
-                while (i != last-1) {
+                for (RandomAccessIterator i = first; i != last-1; ++i) {
                     RandomAccessIterator j = i + 1;
                     if (!comp(*i, *j)) {
                         swap(*i, *j);
                         isSorted = false;
                     }
-                    ++i;
                 }
                 --last;
             }
