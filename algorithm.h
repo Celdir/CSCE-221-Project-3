@@ -184,24 +184,24 @@ namespace mystl {
         void merge(RandomAccessIterator first, RandomAccessIterator split, RandomAccessIterator last, Compare comp) {
             auto a = *first;
             typedef decltype(a) T;
-            T n[last - first];
+            std::vector<T> merged(last - first);
             int index = 0;
             RandomAccessIterator left_smallest = first;
             RandomAccessIterator right_smallest = split;
             while (index < last - first) {
                 if (right_smallest == last || (left_smallest < split && comp(*left_smallest, *right_smallest))) {
-                    n[index] = *left_smallest;
+                    merged[index] = *left_smallest;
                     ++left_smallest;
                 }
                 else if (right_smallest < last) {
-                    n[index] = *right_smallest;
+                    merged[index] = *right_smallest;
                     ++right_smallest;
                 }
                 ++index;
             }
 
             RandomAccessIterator place = first;
-            for (auto i : n) {
+            for (auto i : merged) {
                 *place = i;
                 ++place;
             }

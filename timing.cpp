@@ -32,24 +32,44 @@ void bubble_sort_random_sequence_k(size_t k) {
   mystl::bubble_sort(v.begin(), v.end(), less<int>());
 }
 
-/// @brief Generate random sequence and slow_sort
+/// @brief Generate random sequence and selection_sort
 /// @param k Vector size
-void slow_sort_random_sequence_k(size_t k) {
+void selection_sort_random_sequence_k(size_t k) {
   vector<int> v;
   for(size_t i = 0; i < k; ++i)
     v.push_back(rand());
 
-  mystl::slow_sort(v.begin(), v.end(), less<int>());
+  mystl::selection_sort(v.begin(), v.end(), less<int>());
 }
 
-/// @brief Generate random sequence and sort
+/// @brief Generate random sequence and insertion_sort
 /// @param k Vector size
-void sort_random_sequence_k(size_t k) {
+void insertion_sort_random_sequence_k(size_t k) {
   vector<int> v;
   for(size_t i = 0; i < k; ++i)
     v.push_back(rand());
 
-  mystl::sort(v.begin(), v.end(), less<int>());
+  mystl::insertion_sort(v.begin(), v.end(), less<int>());
+}
+
+/// @brief Generate random sequence and quick_sort
+/// @param k Vector size
+void quick_sort_random_sequence_k(size_t k) {
+  vector<int> v;
+  for(size_t i = 0; i < k; ++i)
+    v.push_back(rand());
+
+  mystl::quick_sort(v.begin(), v.end(), less<int>());
+}
+
+/// @brief Generate random sequence and merge_sort
+/// @param k Vector size
+void merge_sort_random_sequence_k(size_t k) {
+  vector<int> v;
+  for(size_t i = 0; i < k; ++i)
+    v.push_back(rand());
+
+  mystl::merge_sort(v.begin(), v.end(), less<int>());
 }
 
 /// @brief Control timing of a single function
@@ -89,7 +109,9 @@ void time_function(Func f, size_t max_size, string name) {
 
 /// @brief Main function to time all your functions
 int main() {
-  //time_function(bubble_sort_random_sequence_k, pow(2, 15), "Bubble Sort Random Sequence");
-  //time_function(slow_sort_random_sequence_k, pow(2, 17), "Slow Sort Random Sequence");
-  time_function(sort_random_sequence_k, pow(2, 23), "Sort Random Sequence");
+  time_function(bubble_sort_random_sequence_k, pow(2, 15), "Bubble Sort Random Sequence");
+  time_function(selection_sort_random_sequence_k, pow(2, 17), "Selection Sort Random Sequence");
+  time_function(insertion_sort_random_sequence_k, pow(2, 17), "Insertion Sort Random Sequence");
+  time_function(merge_sort_random_sequence_k, pow(2, 23), "MergeSort Random Sequence");
+  time_function(quick_sort_random_sequence_k, pow(2, 23), "QuickSort Random Sequence");
 }
