@@ -182,8 +182,7 @@ namespace mystl {
 
     template<class RandomAccessIterator, class Compare>
         void merge(RandomAccessIterator first, RandomAccessIterator split, RandomAccessIterator last, Compare comp) {
-            auto a = *first;
-            typedef decltype(a) T;
+            typedef typename RandomAccessIterator::value_type T;
             std::vector<T> merged(last - first);
             int index = 0;
             RandomAccessIterator left_smallest = first;
