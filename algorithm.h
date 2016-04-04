@@ -13,7 +13,7 @@
 /// @bonus Each extra sort you implement will be worth bonus points
 ////////////////////////////////////////////////////////////////////////////////
 
-//test comment - gh
+// Implemented by: David Earl and Gerald Hu
 
 #ifndef _ALGORITHM_H_
 #define _ALGORITHM_H_
