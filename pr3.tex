@@ -1,0 +1,85 @@
+\documentclass[11pt]{article}
+
+%-------------------------------- Includes ------------------------------------%
+
+\usepackage[top=0.6in,left=0.6in,right=0.6in,bottom=0.6in]{geometry}
+\usepackage{pgfplots}
+\usepackage[final]{pdfpages}
+\pgfplotsset{width=9cm,compat=1.9}
+\setlength{\parindent}{0cm}
+
+\usepackage{amsmath}
+\usepackage{units}
+
+%------------------------------------------------------------------------------%
+
+\begin{document}
+
+\includepdf[pages=-]{coverpage.pdf}
+
+%------------------------------ Custom Title ----------------------------------%
+
+\title{CSCE 221-H: Programming 2 Report}
+\maketitle
+
+\begin{tabular}{@{} l p{16cm}}
+  \textsc{Topic:}   & Trees and Maps\\
+  \textsc{Authors:} & Michael Earl and Jordan Lamkin\\
+  \textsc{UINs:}    & 824008737, 924005012\\
+\end{tabular}
+
+%------------------------------------------------------------------------------%
+
+\section*{Introduction}
+
+%------------------------------------------------------------------------------%
+
+\section*{Implementation Details}
+
+
+%------------------------------------------------------------------------------%
+
+\section*{Theoretical Analysis}
+
+
+%------------------------------------------------------------------------------%
+
+\section*{Experimental Setup}
+
+\textbf{Processor}: AMD FX-8350 8-Core 4.0 GHz 32nm Desktop Processor \\
+
+\textbf{Memory}: 8 GB DDR3 1866 MHz RAM \\
+
+\textbf{Operating System}: Arch Linux x86\_64 \\
+
+%------------------------------------------------------------------------------%
+\pagebreak
+
+\section*{Results \& Discussion}
+
+\begin{tikzpicture}
+\begin{axis}[
+    title={AVL Map Search Performance},
+    xlabel={Input size},
+    ylabel={Amortized time},
+    xmode = log,
+    log basis x=2,
+    ymode = log,
+    log basis y=10,
+    legend style={legend pos=north west, font=\tiny},
+    cycle list name=black white
+]
+\addplot table[x expr={\thisrowno{0}}, y expr={\thisrowno{1} / \thisrowno{0}}] {timing_data_AVL/search_begin.dat};
+\addplot table[x expr={\thisrowno{0}}, y expr={\thisrowno{1} / \thisrowno{0}}] {timing_data_AVL/search_middle.dat};
+\addplot table[x expr={\thisrowno{0}}, y expr={\thisrowno{1} / \thisrowno{0}}] {timing_data_AVL/search_rand.dat};
+\legend{Search for Beginning Node, Search for Middle Node, Search for Random Node};
+\end{axis}
+\end{tikzpicture}
+
+%------------------------------------------------------------------------------%
+
+\section*{Conclusion}
+
+%------------------------------------------------------------------------------%
+
+\end{document}
