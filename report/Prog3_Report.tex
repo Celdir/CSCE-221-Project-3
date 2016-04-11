@@ -61,25 +61,40 @@ are out of order, they are swapped. This ''bubble'' traverses the entire
 container from start to end, repeating until there are no more swaps to make.\\
 
 \noindent Selection Sort is one of the two ''slow'' sorting algorithms. It
-traverses the entire array searching for the smallest element, then swaps
+traverses the entire container searching for the smallest element, then swaps
 that element into the first position. Then it searches the remainder of the
-array for the next-smallest element, then swaps that element into the first 
-position of the remainder. On its nth traversal, it will swap the smallest element
-into the nth position. This process continues until there is no more ''remainder''
-of the array to traverse.\\
+container for the next-smallest element, then swaps that element into the first 
+position of the remainder. On its $i$th traversal, it will swap the smallest element
+into the $i$th position. This process continues $n$ times, at which point there 
+is no more ''remainder'' of the container to traverse.\\
 
 \noindent Insertion Sort is the other of the two ''slow'' sorting algorithms.
-It 
+It traverses the entire container $n$ times. In each traversal, for each step $i$, 
+if $i$ is not the first element, and if $i$ and $i-1$ are out of order, 
+the two are swapped, swapping the element into an ''already-sorted'' portion
+of the container. Each traversal will grow the already-sorted portion,
+until all the data is in the sorted portion. \\ %%WIP
+
+\noindent Mergesort is one of the two ''fast'' sorting algorithms. It splits
+the input data into two subarrays, and recursively splits each of those
+subarrays into two subarrays, repeating the splitting process until each subarray
+is of size \< 2. These subarrays are then sorted in sets of two, and the resulting
+sorted data is put into an array and returned. The returned sorted data is merged 
+with more data using the same merge function, until fully-sorted data is returned.\\
+
+\noindent Quicksort is the other of the two ''fast'' sorting algorithms. It
+randomly selects an element of the data to use as a ''pivot'' [WIP]\\
+
 
 \noindent The skeleton of timing.cpp was provided by the instructors. 
 The timing function was already implemented for randomly sorted input data;
 we modified it to analyze sorted and reverse-sorted data, as well as
 data with many similar elements. The timing function relies on 
-high\_resolution\_clock; given a sorting function and a number $n, the 
-timing function would generate a vector with $n elements in it. 
+high\_resolution\_clock; given a sorting function and a number $n$, the 
+timing function would generate a vector with $n$ elements in it. 
 Then, the timing function would try to sort the vector using the specified
-sorting algorithm. This process was repeated for increasing sizes of $n,
-and repeated 10 times at each $n to ensure an accurate average time.\\
+sorting algorithm. This process was repeated for increasing sizes of $n$,
+and repeated 10 times at each $n$ to ensure an accurate average time.\\
 
 
 \section*{Theoretical Analysis}
