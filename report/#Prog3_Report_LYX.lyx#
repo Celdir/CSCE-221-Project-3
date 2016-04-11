@@ -488,6 +488,26 @@ Mergesort is
 \end_inset
 
  in all cases.
+ At each step, the problem is split in half, until it reaches the smallest
+ possible subproblem; it will take 
+\begin_inset Formula $O(logn)$
+\end_inset
+
+ splits to reach the base level, and 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ to merge all the data back together.
+ There is no 
+\begin_inset Quotes eld
+\end_inset
+
+best case
+\begin_inset Quotes erd
+\end_inset
+
+, as mergesort will perform the same operations regardless of the data it's
+ given.
  
 \begin_inset Newline newline
 \end_inset
@@ -497,7 +517,53 @@ Mergesort is
 
 \begin_layout Standard
 \noindent
-Quicksort 
+Quicksort is 
+\begin_inset Formula $O(nlog(n))$
+\end_inset
+
+ average case and best case, and 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+ in a rare worst case.
+ The best case of quicksort is 
+\begin_inset Formula $O(nlogn)$
+\end_inset
+
+ due to an inherent limit on comparison-based sorting algorithms.
+ Assuming an 
+\begin_inset Quotes eld
+\end_inset
+
+average case
+\begin_inset Quotes erd
+\end_inset
+
+ where the pivots selected give equal (or close to equal) sized sublists,
+ it will take 
+\begin_inset Formula $O(logn)$
+\end_inset
+
+ splits to reach the base level, and 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ to merge all the data back together.
+ The worst case is if every pivot chosen is a bad selection, splitting into
+ a subproblem of size 1 and size 
+\begin_inset Formula $(n-1)$
+\end_inset
+
+, which is then split into a subproblem of size 1 and size 
+\begin_inset Formula $(n-2)$
+\end_inset
+
+, so on....resulting in 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ splits.
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -511,15 +577,7 @@ Experimental Setup
 \begin_layout Standard
 Timing tests were conducted using the provided timing.cpp, compiled with
  the provided makefile's commands.
- Compilation was done on the 
-\begin_inset Quotes eld
-\end_inset
-
-michael is rad
-\begin_inset Quotes erd
-\end_inset
-
- server (his laptop), with G++ version 5.3.0.
+ Compilation was done on Michael's desktop, with G++ version 5.3.0.
  Compilation was set to the C++14 standard, with the -G flag enabled and
  O2 optimization level, warnings set to -Wall -Werror (warn all and all
  warnings treated as compilation errors), and dependencies flagged with
@@ -532,20 +590,11 @@ michael is rad
 
 \begin_layout Standard
 \noindent
-Tests were run on the 
-\begin_inset Quotes eld
-\end_inset
-
-michael is rad
-\begin_inset Quotes erd
-\end_inset
-
- server (his laptop), which runs Arch Linux x86_64 version 8.12 (found via
- arch --version and lsb_release -a).
- This server has 99026668 total kilobytes of RAM (found via free).
- It uses Intel Core i7-3970X CPUs (2 sockets, 8 cores per socket, 2 threads
- per core), with a clock speed of 2000 mHz (found via lscpu).
- Each core has a Xeon E5-2650 processor (found via lshw --short).
+Tests were run on Michael's desktop, which runs Arch Linux x86_64 version
+ 4.4.5-1.
+ It has 8 total gigabytes of RAM.
+ It uses an AMD FX-8350 8-Core processor, with a clock speed of 4 GHz.
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -559,9 +608,21 @@ Timing functions output timing results for input sizes that were powers
  the user.
  Each step of the timing was repeated 10 times, and the average of each
  result taken.
- Linear height n inserts went up to a maximum input size of 32768; logarithmic
- height n inserts went up to a maximum input size of 4194304, and random
- n inserts went up to a maximum input size of 1048576.
+ Bubble Sort went up to a maximum input size of 32768 
+\begin_inset Formula $(2^{15})$
+\end_inset
+
+ elements; Insertion and Selection sorts went up to a maximum input size
+ of 131072 
+\begin_inset Formula $(2^{17})$
+\end_inset
+
+ elements; and Quicksort and Mergesort went up to a maximum input size of
+ 4194304 
+\begin_inset Formula $(2^{22})$
+\end_inset
+
+ elements.
 \begin_inset Newline newline
 \end_inset
 
@@ -602,13 +663,6 @@ data where a lot of the elements are the same
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\noindent
-timing.o was run twice: first on a tree with AVL rebalancing and then on
- a simpler binary tree with no rebalancing method.
- These results for the performance were then compared between the two trees.
 \end_layout
 
 \begin_layout Section*
@@ -1603,6 +1657,17 @@ This assignment achieved a few main goals.
  Overall, this assignment as a whole gave needed practice in coding as well
  as reinforced concepts that were learned in class.
  
+\end_layout
+
+\begin_layout Standard
+This assignment showed the differences in runtime between various sorting
+ algorithms, highlighting which ones were theoretically more efficient,
+ and which ones actually performed better in practice.
+ Quicksort, like the discussions in class, consistently performed well and
+ sorted quickly; Insertion Sort and Bubble Sort ran quickly on already-sorted
+ data, but performed worse in other areas.
+ Out of the slow sorts, Insertion was the best, and Bubble was the worst
+ in most
 \end_layout
 
 \end_body

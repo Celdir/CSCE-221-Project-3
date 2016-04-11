@@ -1,4 +1,4 @@
-#LyX file created by tex2lyx 2.1
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
 \lyxformat 474
 \begin_document
 \begin_header
@@ -73,8 +73,6 @@
 
 \series bold
 Programming 2 Assignment
-\series default
-
 \end_layout
 
 \begin_layout Author
@@ -99,7 +97,9 @@ Introduction
 
 \begin_layout Standard
 \noindent
-The purpose of this assignment was to analyze the theoretical and actual performance of several common sorting algorithms discussed in class. The project implemented bubble sort, two 
+The purpose of this assignment was to analyze the theoretical and actual
+ performance of several common sorting algorithms discussed in class.
+ The project implemented bubble sort, two 
 \begin_inset Quotes eld
 \end_inset
 
@@ -115,7 +115,11 @@ fast sorting
 \begin_inset Quotes erd
 \end_inset
 
- algorithms (mergesort and quicksort). The running time of these algorithms was analyzed for several types of data: sorted data, reverse-sorted data, randomized data, and data with many similar elements. 
+ algorithms (mergesort and quicksort).
+ The running time of these algorithms was analyzed for several types of
+ data: sorted data, reverse-sorted data, randomized data, and data with
+ many similar elements.
+ [TODO - summary of results + what we learned]
 \begin_inset Newline newline
 \end_inset
 
@@ -128,7 +132,9 @@ Implementation Details
 
 \begin_layout Standard
 \noindent
-All sorting algorithms took random-access iterators to the first and last elements of the container, and a comparator. 
+All sorting algorithms took random-access iterators to the first and last
+ elements of the container, and a comparator.
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -137,7 +143,11 @@ All sorting algorithms took random-access iterators to the first and last elemen
 
 \begin_layout Standard
 \noindent
-Bubble Sort is a simple sorting algorithm. It compares a set of two elements that are next to each other, and if the elements in the bubble are out of order, they are swapped. This set traverses the entire container from start to end, then starts from the beginning again, repeating until there are no more swaps to make.
+Bubble Sort is a simple sorting algorithm.
+ It compares a set of two elements that are next to each other, and if the
+ elements in the bubble are out of order, they are swapped.
+ This set traverses the entire container from start to end, then starts
+ from the beginning again, repeating until there are no more swaps to make.
 \begin_inset Newline newline
 \end_inset
 
@@ -154,7 +164,12 @@ slow
 \begin_inset Quotes erd
 \end_inset
 
- sorting algorithms. It traverses the entire container searching for the smallest element, then swaps that element into the first position. Then it searches the remainder of the container for the next-smallest element, then swaps that element into the first position of the remainder. On its 
+ sorting algorithms.
+ It traverses the entire container searching for the smallest element, then
+ swaps that element into the first position.
+ Then it searches the remainder of the container for the next-smallest element,
+ then swaps that element into the first position of the remainder.
+ On its 
 \begin_inset Formula $i$
 \end_inset
 
@@ -162,7 +177,8 @@ th traversal, it will swap the smallest element into the
 \begin_inset Formula $i$
 \end_inset
 
-th position. This process continues 
+th position.
+ This process continues 
 \begin_inset Formula $n$
 \end_inset
 
@@ -191,11 +207,13 @@ slow
 \begin_inset Quotes erd
 \end_inset
 
- sorting algorithms. It traverses the entire container 
+ sorting algorithms.
+ It traverses the entire container 
 \begin_inset Formula $n$
 \end_inset
 
- times. In each traversal, for each step 
+ times.
+ In each traversal, for each step 
 \begin_inset Formula $i$
 \end_inset
 
@@ -219,7 +237,10 @@ already-sorted
 \begin_inset Quotes erd
 \end_inset
 
- portion of the container. Each traversal will grow the already-sorted portion, until all the data is in the sorted portion. 
+ portion of the container.
+ Each traversal will grow the already-sorted portion, until all the data
+ is in the sorted portion.
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -236,11 +257,18 @@ fast
 \begin_inset Quotes erd
 \end_inset
 
- sorting algorithms. It splits the input data into two subarrays, and recursively splits each of those subarrays into two subarrays, repeating the splitting process until each subarray is of size
+ sorting algorithms.
+ It splits the input data into two subarrays, and recursively splits each
+ of those subarrays into two subarrays, repeating the splitting process
+ until each subarray is of size
 \begin_inset Formula $<$
 \end_inset
 
-2. These subarrays are then sorted in sets of two, and the resulting sorted data is put into an array and returned. The returned sorted data is merged with more data using the same merge function, until fully-sorted data is returned.
+2.
+ These subarrays are then sorted in sets of two, and the resulting sorted
+ data is put into an array and returned.
+ The returned sorted data is merged with more data using the same merge
+ function, until fully-sorted data is returned.
 \begin_inset Newline newline
 \end_inset
 
@@ -257,7 +285,8 @@ fast
 \begin_inset Quotes erd
 \end_inset
 
- sorting algorithms. It randomly selects an element of the data to use as a 
+ sorting algorithms.
+ It randomly selects an element of the data to use as a 
 \begin_inset Quotes eld
 \end_inset
 
@@ -265,7 +294,14 @@ pivot
 \begin_inset Quotes erd
 \end_inset
 
- , and traverses the entire container. It moves all elements less than the pivot to before the pivot's position, and moves all elements greater than the pivot to after the pivot's position, all of which is done in-place. This places the pivot in the proper position. Then, quicksort is recursively called, once on the set of elements less than the pivot, and once on the set of elements greater than the pivot. 
+ , and traverses the entire container.
+ It moves all elements less than the pivot to before the pivot's position,
+ and moves all elements greater than the pivot to after the pivot's position,
+ all of which is done in-place.
+ This places the pivot in the proper position.
+ Then, quicksort is recursively called, once on the set of elements less
+ than the pivot, and once on the set of elements greater than the pivot.
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -274,7 +310,12 @@ pivot
 
 \begin_layout Standard
 \noindent
-The skeleton of timing.cpp was provided by the instructors. The timing function was already implemented for randomly sorted input data; we modified it to analyze sorted and reverse-sorted data, as well as data with many similar elements. The timing function relies on high_resolution_clock; given a sorting function and a number 
+The skeleton of timing.cpp was provided by the instructors.
+ The timing function was already implemented for randomly sorted input data;
+ we modified it to analyze sorted and reverse-sorted data, as well as data
+ with many similar elements.
+ The timing function relies on high_resolution_clock; given a sorting function
+ and a number 
 \begin_inset Formula $n$
 \end_inset
 
@@ -282,7 +323,10 @@ The skeleton of timing.cpp was provided by the instructors. The timing function 
 \begin_inset Formula $n$
 \end_inset
 
- elements in it. Then, the timing function would try to sort the vector using the specified sorting algorithm. This process was repeated for increasing sizes of 
+ elements in it.
+ Then, the timing function would try to sort the vector using the specified
+ sorting algorithm.
+ This process was repeated for increasing sizes of 
 \begin_inset Formula $n$
 \end_inset
 
@@ -291,6 +335,7 @@ The skeleton of timing.cpp was provided by the instructors. The timing function 
 \end_inset
 
  to ensure an accurate average time.
+ [TODO - what we learned]
 \begin_inset Newline newline
 \end_inset
 
@@ -307,7 +352,8 @@ Bubble Sort is
 \begin_inset Formula $O(n^{2})$
 \end_inset
 
- average and worst case. It will force the largest element to the end after 
+ average and worst case.
+ It will force the largest element to the end after 
 \begin_inset Formula $n$
 \end_inset
 
@@ -323,7 +369,8 @@ Bubble Sort is
 \begin_inset Formula $n$
 \end_inset
 
- times in total. 
+ times in total.
+ 
 \begin_inset Formula $n$
 \end_inset
 
@@ -335,11 +382,13 @@ Bubble Sort is
 \begin_inset Formula $O(n^{2})$
 \end_inset
 
- time. Bubble Sort's best case is 
+ time.
+ Bubble Sort's best case is 
 \begin_inset Formula $O(n)$
 \end_inset
 
- in the case that it's already sorted. It traverses the list once and makes 
+, in the case that it's already sorted.
+ It traverses the list once and makes 
 \begin_inset Formula $n$
 \end_inset
 
@@ -356,7 +405,8 @@ Selection Sort is
 \begin_inset Formula $O(n^{2})$
 \end_inset
 
- in all cases. In searching for the smallest element, it will traverse 
+ in all cases.
+ In searching for the smallest element, it will traverse 
 \begin_inset Formula $n$
 \end_inset
 
@@ -364,7 +414,8 @@ Selection Sort is
 \begin_inset Formula $n$
 \end_inset
 
- comparisons, before forcing the smallest element to the start. It then repeats this process for a sublist of size 
+ comparisons, before forcing the smallest element to the start.
+ It then repeats this process for a sublist of size 
 \begin_inset Formula $n-1$
 \end_inset
 
@@ -376,7 +427,8 @@ Selection Sort is
 \begin_inset Formula $n-n$
 \end_inset
 
-. 
+.
+ 
 \begin_inset Formula $\sum_{i=0}^{n}i=(i)(i+1)/2$
 \end_inset
 
@@ -384,7 +436,10 @@ Selection Sort is
 \begin_inset Formula $O(n^{2})$
 \end_inset
 
- behavior. Furthermore, it will always search for the smallest element, regardless of whether it needs to be swapped or not, and will perform all traversals.
+ behavior.
+ Furthermore, it will always search for the smallest element, regardless
+ of whether it needs to be swapped or not, and will perform all traversals
+ regardless of what data type it's given.
 \begin_inset Newline newline
 \end_inset
 
@@ -397,7 +452,8 @@ Insertion Sort is
 \begin_inset Formula $O(n^{2})$
 \end_inset
 
- average and worst case, for similar reasons as Selection Sort: it will traverse a list of size 
+ average and worst case, for similar reasons as Selection Sort: it will
+ traverse a list of size 
 \begin_inset Formula $n$
 \end_inset
 
@@ -413,11 +469,14 @@ Insertion Sort is
 \begin_inset Formula $n-n$
 \end_inset
 
-. Unlike Selection Sort, Insertion Sort is 
+.
+ Unlike Selection Sort, Insertion Sort is 
 \begin_inset Formula $O(n)$
 \end_inset
 
-, in the best case that it is already sorted, as it will only traverse the list once. 
+, in the best case that it is already sorted, as it will only traverse the
+ list once.
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -426,7 +485,32 @@ Insertion Sort is
 
 \begin_layout Standard
 \noindent
-Mergesort 
+Mergesort is 
+\begin_inset Formula $O(nlog(n))$
+\end_inset
+
+ in all cases.
+ At each step, the problem is split in half, until it reaches the smallest
+ possible subproblem; it will take 
+\begin_inset Formula $O(logn)$
+\end_inset
+
+ splits to reach the base level, and 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ to merge all the data back together.
+ There is not a 
+\begin_inset Quotes eld
+\end_inset
+
+best case
+\begin_inset Quotes erd
+\end_inset
+
+ input type, as mergesort will perform the same operations regardless of
+ the data it's given.
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -435,7 +519,53 @@ Mergesort
 
 \begin_layout Standard
 \noindent
-Quicksort 
+Quicksort is 
+\begin_inset Formula $O(nlog(n))$
+\end_inset
+
+ average case and best case, and 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+ in a rare worst case.
+ The best case of quicksort is 
+\begin_inset Formula $O(nlogn)$
+\end_inset
+
+ due to an inherent limit on comparison-based sorting algorithms.
+ Assuming an 
+\begin_inset Quotes eld
+\end_inset
+
+average case
+\begin_inset Quotes erd
+\end_inset
+
+ where the pivots selected give equal (or close to equal) sized sublists,
+ it will take 
+\begin_inset Formula $O(logn)$
+\end_inset
+
+ splits to reach the base level, and 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ to merge all the data back together.
+ The worst case is if every pivot chosen is a bad selection, splitting into
+ a subproblem of size 1 and size 
+\begin_inset Formula $(n-1)$
+\end_inset
+
+, which is then split into a subproblem of size 1 and size 
+\begin_inset Formula $(n-2)$
+\end_inset
+
+, so on....resulting in 
+\begin_inset Formula $O(n)$
+\end_inset
+
+ splits.
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -447,15 +577,13 @@ Experimental Setup
 \end_layout
 
 \begin_layout Standard
-Timing tests were conducted using the provided timing.cpp, compiled with the provided makefile's commands. Compilation was done on the 
-\begin_inset Quotes eld
-\end_inset
-
-michael is rad
-\begin_inset Quotes erd
-\end_inset
-
- server (his laptop), with G++ version 5.3.0. Compilation was set to the C++14 standard, with the -G flag enabled and O2 optimization level, warnings set to -Wall -Werror (warn all and all warnings treated as compilation errors), and dependencies flagged with -MMD (auto-generate dependencies).
+Timing tests were conducted using the provided timing.cpp, compiled with
+ the provided makefile's commands.
+ Compilation was done on Michael's desktop, with G++ version 5.3.0.
+ Compilation was set to the C++14 standard, with the -G flag enabled and
+ O2 optimization level, warnings set to -Wall -Werror (warn all and all
+ warnings treated as compilation errors), and dependencies flagged with
+ -MMD (auto-generate dependencies).
 \begin_inset Newline newline
 \end_inset
 
@@ -464,15 +592,11 @@ michael is rad
 
 \begin_layout Standard
 \noindent
-Tests were run on the 
-\begin_inset Quotes eld
-\end_inset
-
-michael is rad
-\begin_inset Quotes erd
-\end_inset
-
- server (his laptop), which runs Arch Linux x86_64 version 8.12 (found via arch --version and lsb_release -a). This server has 99026668 total kilobytes of RAM (found via free). It uses Intel Core i7-3970X CPUs (2 sockets, 8 cores per socket, 2 threads per core), with a clock speed of 2000 mHz (found via lscpu). Each core has a Xeon E5-2650 processor (found via lshw --short).
+Tests were run on Michael's desktop, which runs Arch Linux x86_64 version
+ 4.4.5-1.
+ It has 8 total gigabytes of RAM.
+ It uses an AMD FX-8350 8-Core processor, with a clock speed of 4 GHz.
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -481,7 +605,26 @@ michael is rad
 
 \begin_layout Standard
 \noindent
-Timing functions output timing results for input sizes that were powers of 2, starting from 2 itself, and ending at a maximum size specified by the user. Each step of the timing was repeated 10 times, and the average of each result taken. Linear height n inserts went up to a maximum input size of 32768; logarithmic height n inserts went up to a maximum input size of 4194304, and random n inserts went up to a maximum input size of 1048576.
+Timing functions output timing results for input sizes that were powers
+ of 2, starting from 2 itself, and ending at a maximum size specified by
+ the user.
+ Each step of the timing was repeated 10 times, and the average of each
+ result taken.
+ Bubble Sort went up to a maximum input size of 32768 
+\begin_inset Formula $(2^{15})$
+\end_inset
+
+ elements; Insertion and Selection sorts went up to a maximum input size
+ of 131072 
+\begin_inset Formula $(2^{17})$
+\end_inset
+
+ elements; and Quicksort and Mergesort went up to a maximum input size of
+ 4194304 
+\begin_inset Formula $(2^{22})$
+\end_inset
+
+ elements.
 \begin_inset Newline newline
 \end_inset
 
@@ -490,7 +633,8 @@ Timing functions output timing results for input sizes that were powers of 2, st
 
 \begin_layout Standard
 \noindent
-Four data types were used in testing: sorted data, reverse-sorted data, randomly-sorted data, and data with 
+Four data types were used in testing: sorted data, reverse-sorted data,
+ randomly-sorted data, and data with 
 \begin_inset Quotes eld
 \end_inset
 
@@ -498,7 +642,8 @@ few unique elements
 \begin_inset Quotes erd
 \end_inset
 
-. For our purposes, 
+.
+ For our purposes, 
 \begin_inset Quotes eld
 \end_inset
 
@@ -514,16 +659,12 @@ data where a lot of the elements are the same
 \begin_inset Quotes erd
 \end_inset
 
-; the input data generated consisted mostly of 1s, with a few 2s spaced out in the data.
+; the input data generated consisted mostly of 1s, with a few 2s spaced
+ out in the data.
 \begin_inset Newline newline
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\noindent
-timing.o was run twice: first on a tree with AVL rebalancing and then on a simpler binary tree with no rebalancing method. These results for the performance were then compared between the two trees.
 \end_layout
 
 \begin_layout Section*
@@ -531,7 +672,15 @@ Results and Discussion
 \end_layout
 
 \begin_layout Standard
-In testing the timing performance of the functions for the binary search tree and AVL tree implementations of the map ADT, only the insert function was tested. As was discussed in the theoretical analysis section, all of the three main functions of the map ADT (find, insert, snd erase) for the binary search tree and AVL tree have the same asymptotic running time. As a result it is only necessary to test one of the functions because the results should be asymptotically the same for the other two as well. 
+In testing the timing performance of the functions for the binary search
+ tree and AVL tree implementations of the map ADT, only the insert function
+ was tested.
+ As was discussed in the theoretical analysis section, all of the three
+ main functions of the map ADT (find, insert, snd erase) for the binary
+ search tree and AVL tree have the same asymptotic running time.
+ As a result it is only necessary to test one of the functions because the
+ results should be asymptotically the same for the other two as well.
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -539,17 +688,14 @@ In testing the timing performance of the functions for the binary search tree an
 \end_layout
 
 \begin_layout Standard
-
 \begin_inset Float figure
 placement h
 wide false
 sideways false
 status open
 
-
-\begin_layout Standard
-
-\begin_inset Graphics 
+\begin_layout Plain Layout
+\begin_inset Graphics
 	filename report/Linear_Time_Per_(Binary)
 	width 11cm
 	draft
@@ -562,7 +708,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graph of the Time Taken per Addition for Different Input Sizes for a Linear Order Added Binary Search Tree
+Graph of the Time Taken per Addition for Different Input Sizes for a Linear
+ Order Added Binary Search Tree
 \end_layout
 
 \end_inset
@@ -583,17 +730,14 @@ name "fig:Linear_Time_Per_Binary"
 \end_layout
 
 \begin_layout Standard
-
 \begin_inset Float figure
 placement h
 wide false
 sideways false
 status open
 
-
-\begin_layout Standard
-
-\begin_inset Graphics 
+\begin_layout Plain Layout
+\begin_inset Graphics
 	filename report/Linear_Time_Per_(AVL)
 	width 11cm
 	draft
@@ -606,7 +750,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graph of the Time Taken for Different Input Sizes for a Linear Order Added AVL Tree
+Graph of the Time Taken for Different Input Sizes for a Linear Order Added
+ AVL Tree
 \end_layout
 
 \end_inset
@@ -627,17 +772,14 @@ name "fig:Linear_Time_Per_AVL"
 \end_layout
 
 \begin_layout Standard
-
 \begin_inset Float figure
 placement h
 wide false
 sideways false
 status open
 
-
-\begin_layout Standard
-
-\begin_inset Graphics 
+\begin_layout Plain Layout
+\begin_inset Graphics
 	filename report/Linear_Big_O_(Binary)
 	width 11cm
 	draft
@@ -650,7 +792,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graph of the Big O Constants for Different Input Sizes for a Linear Order Added Binary Search Tree
+Graph of the Big O Constants for Different Input Sizes for a Linear Order
+ Added Binary Search Tree
 \end_layout
 
 \end_inset
@@ -671,17 +814,14 @@ name "fig:Linear_Big_O_Binary"
 \end_layout
 
 \begin_layout Standard
-
 \begin_inset Float figure
 placement h
 wide false
 sideways false
 status open
 
-
-\begin_layout Standard
-
-\begin_inset Graphics 
+\begin_layout Plain Layout
+\begin_inset Graphics
 	filename report/Linear_Big_O_(AVL)
 	width 11cm
 	draft
@@ -694,7 +834,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graph of the Big O Constants for Different Input Sizes for a Linear Order Added AVL Tree
+Graph of the Big O Constants for Different Input Sizes for a Linear Order
+ Added AVL Tree
 \end_layout
 
 \end_inset
@@ -716,7 +857,10 @@ name "fig:Linear_Big_O_AVL"
 
 \begin_layout Standard
 \noindent
-The first set of timing tests that was run on the code was for linearly inserted elements. This means that if the structure of the tree not changed by rebalancing, the tree would have a height that is 
+The first set of timing tests that was run on the code was for linearly
+ inserted elements.
+ This means that if the structure of the tree not changed by rebalancing,
+ the tree would have a height that is 
 \begin_inset Formula $O(n)$
 \end_inset
 
@@ -724,7 +868,12 @@ The first set of timing tests that was run on the code was for linearly inserted
 \begin_inset Formula $n$
 \end_inset
 
- is the number of nodes in the tree. These tests should result in the worst case for the insertions. This test was first run on the normal binary search tree, then on the AVL tree. As predicted by the theoretical analysis, the time taken by the normal binary search tree was 
+ is the number of nodes in the tree.
+ These tests should result in the worst case for the insertions.
+ This test was first run on the normal binary search tree, then on the AVL
+ tree.
+ As predicted by the theoretical analysis, the time taken by the normal
+ binary search tree was 
 \begin_inset Formula $O(n)$
 \end_inset
 
@@ -736,9 +885,9 @@ The first set of timing tests that was run on the code was for linearly inserted
 \begin_inset Formula $O(n)$
 \end_inset
 
-). This is seen in Figure
+).
+ This is seen in Figure
 \begin_inset space ~
-
 \end_inset
 
 
@@ -748,13 +897,14 @@ reference "fig:Linear_Time_Per_Binary"
 
 \end_inset
 
-, where the time per one insertion goes up basically linearly with respect to the input size. In contrast, the AVL tree runs in 
+, where the time per one insertion goes up basically linearly with respect
+ to the input size.
+ In contrast, the AVL tree runs in 
 \begin_inset Formula $O(\log{n})$
 \end_inset
 
  time, as is clearly seen in the logarithmic shape of the graph in Figure
 \begin_inset space ~
-
 \end_inset
 
 
@@ -764,7 +914,8 @@ reference "fig:Linear_Time_Per_AVL"
 
 \end_inset
 
-. 
+.
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -773,7 +924,9 @@ reference "fig:Linear_Time_Per_AVL"
 
 \begin_layout Standard
 \noindent
-The Big O constants were calculated for both types of trees. They were calculated by dividing the time per insertion by the expected time for each insertion, which is 
+The Big O constants were calculated for both types of trees.
+ They were calculated by dividing the time per insertion by the expected
+ time for each insertion, which is 
 \begin_inset Formula $n$
 \end_inset
 
@@ -781,9 +934,9 @@ The Big O constants were calculated for both types of trees. They were calculate
 \begin_inset Formula $\log{n}$
 \end_inset
 
- for the AVL tree. The graphs of both of these results (Figures
+ for the AVL tree.
+ The graphs of both of these results (Figures
 \begin_inset space ~
-
 \end_inset
 
 
@@ -795,7 +948,6 @@ reference "fig:Linear_Big_O_Binary"
 
  and
 \begin_inset space ~
-
 \end_inset
 
 
@@ -805,7 +957,9 @@ reference "fig:Linear_Big_O_AVL"
 
 \end_inset
 
-) flatten out for their larger input sizes, suggesting that the flattened value is the Big O constant. The Big O constant for the binary search tree was 
+) flatten out for their larger input sizes, suggesting that the flattened
+ value is the Big O constant.
+ The Big O constant for the binary search tree was 
 \begin_inset Formula $1*10^{-8}$
 \end_inset
 
@@ -813,7 +967,15 @@ reference "fig:Linear_Big_O_AVL"
 \begin_inset Formula $5*10^{-8}$
 \end_inset
 
-. The Big O constant is actually larger for the AVL tree than for the binary search tree. This is inconsequential, however, because their Big O functions are not the same. Comparing Big O constants is only meaningful when the functions are the same. In this case, for larger input values (i.e. asymptotically) the binary search tree will be much slower because 
+.
+ The Big O constant is actually larger for the AVL tree than for the binary
+ search tree.
+ This is inconsequential, however, because their Big O functions are not
+ the same.
+ Comparing Big O constants is only meaningful when the functions are the
+ same.
+ In this case, for larger input values (i.e.
+ asymptotically) the binary search tree will be much slower because 
 \begin_inset Formula $O(n)$
 \end_inset
 
@@ -829,17 +991,14 @@ reference "fig:Linear_Big_O_AVL"
 \end_layout
 
 \begin_layout Standard
-
 \begin_inset Float figure
 placement h
 wide false
 sideways false
 status open
 
-
-\begin_layout Standard
-
-\begin_inset Graphics 
+\begin_layout Plain Layout
+\begin_inset Graphics
 	filename report/Logarithmic_Time_Per_(Binary)
 	width 11cm
 	draft
@@ -852,7 +1011,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graph of the Time Taken per Addition for Different Input Sizes for a Logarithmic Order Added Binary Search Tree
+Graph of the Time Taken per Addition for Different Input Sizes for a Logarithmic
+ Order Added Binary Search Tree
 \end_layout
 
 \end_inset
@@ -873,17 +1033,14 @@ name "fig:Logarithmic_Time_Per_Binary"
 \end_layout
 
 \begin_layout Standard
-
 \begin_inset Float figure
 placement h
 wide false
 sideways false
 status open
 
-
-\begin_layout Standard
-
-\begin_inset Graphics 
+\begin_layout Plain Layout
+\begin_inset Graphics
 	filename report/Logarithmic_Time_Per_(AVL)
 	width 11cm
 	draft
@@ -896,7 +1053,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graph of the Time Taken for Different Input Sizes for a Logarithmic Order Added AVL Tree
+Graph of the Time Taken for Different Input Sizes for a Logarithmic Order
+ Added AVL Tree
 \end_layout
 
 \end_inset
@@ -917,17 +1075,14 @@ name "fig:Logarithmic_Time_Per_AVL"
 \end_layout
 
 \begin_layout Standard
-
 \begin_inset Float figure
 placement h
 wide false
 sideways false
 status open
 
-
-\begin_layout Standard
-
-\begin_inset Graphics 
+\begin_layout Plain Layout
+\begin_inset Graphics
 	filename report/Logarithmic_Big_O_(Binary)
 	width 11cm
 	draft
@@ -940,7 +1095,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graph of the Big O Constants for Different Input Sizes for a Logarithmic Order Added Binary Search Tree
+Graph of the Big O Constants for Different Input Sizes for a Logarithmic
+ Order Added Binary Search Tree
 \end_layout
 
 \end_inset
@@ -961,17 +1117,14 @@ name "fig:Logarithmic_Big_O_Binary"
 \end_layout
 
 \begin_layout Standard
-
 \begin_inset Float figure
 placement h
 wide false
 sideways false
 status open
 
-
-\begin_layout Standard
-
-\begin_inset Graphics 
+\begin_layout Plain Layout
+\begin_inset Graphics
 	filename report/Logarithmic_Big_O_(AVL)
 	width 11cm
 	draft
@@ -984,7 +1137,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graph of the Big O Constants for Different Input Sizes for a Logarithmic Order Added AVL Tree
+Graph of the Big O Constants for Different Input Sizes for a Logarithmic
+ Order Added AVL Tree
 \end_layout
 
 \end_inset
@@ -1006,13 +1160,20 @@ name "fig:Logarithmic_Big_O_AVL"
 
 \begin_layout Standard
 \noindent
-The next set of tests used logarithmically inserted elements, meaning that the structure of the tree would be logarithmic if it was not changed by rebalancing. These tests should yield the best case for the insertions. Like the last tests, these tests were run on the binary search tree first, then on the AVL tree. Again, the results agreed with the theoretical predictions made earlier. The time taken per insertion with respect to input size for the binary search tree was 
+The next set of tests used logarithmically inserted elements, meaning that
+ the structure of the tree would be logarithmic if it was not changed by
+ rebalancing.
+ These tests should yield the best case for the insertions.
+ Like the last tests, these tests were run on the binary search tree first,
+ then on the AVL tree.
+ Again, the results agreed with the theoretical predictions made earlier.
+ The time taken per insertion with respect to input size for the binary
+ search tree was 
 \begin_inset Formula $O(\log{n})$
 \end_inset
 
  this time, as is seen in Figure
 \begin_inset space ~
-
 \end_inset
 
 
@@ -1022,7 +1183,8 @@ reference "fig:Logarithmic_Time_Per_Binary"
 
 \end_inset
 
-. This is still 
+.
+ This is still 
 \begin_inset Formula $O(h)$
 \end_inset
 
@@ -1038,13 +1200,13 @@ reference "fig:Logarithmic_Time_Per_Binary"
 \begin_inset Formula $O(n)$
 \end_inset
 
- as it was in the last case. Also, as was expected, the results for the AVL tree were 
+ as it was in the last case.
+ Also, as was expected, the results for the AVL tree were 
 \begin_inset Formula $O(\log{n})$
 \end_inset
 
  (Figure
 \begin_inset space ~
-
 \end_inset
 
 
@@ -1054,7 +1216,8 @@ reference "fig:Logarithmic_Time_Per_AVL"
 
 \end_inset
 
-). 
+).
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -1063,13 +1226,17 @@ reference "fig:Logarithmic_Time_Per_AVL"
 
 \begin_layout Standard
 \noindent
-The agreement between the theoretical and actual results was further confirmed when looking at the Big O constants for the logarithmic insertions. In this case, the expected time for insertion for both the binary search tree and the AVL tree were 
+The agreement between the theoretical and actual results was further confirmed
+ when looking at the Big O constants for the logarithmic insertions.
+ In this case, the expected time for insertion for both the binary search
+ tree and the AVL tree were 
 \begin_inset Formula $\log{n}$
 \end_inset
 
-. For both tree types, the results for the Big O constants flattened out for larger input sizes (Figures
+.
+ For both tree types, the results for the Big O constants flattened out
+ for larger input sizes (Figures
 \begin_inset space ~
-
 \end_inset
 
 
@@ -1081,7 +1248,6 @@ reference "fig:Logarithmic_Big_O_Binary"
 
  and
 \begin_inset space ~
-
 \end_inset
 
 
@@ -1091,7 +1257,8 @@ reference "fig:Logarithmic_Big_O_AVL"
 
 \end_inset
 
-), suggesting that the constants are correct, as are the Big O functions. The Big O constant appears to be about 
+), suggesting that the constants are correct, as are the Big O functions.
+ The Big O constant appears to be about 
 \begin_inset Formula $4*10^{-8}$
 \end_inset
 
@@ -1099,11 +1266,21 @@ reference "fig:Logarithmic_Big_O_AVL"
 \begin_inset Formula $4*10^{-8}$
 \end_inset
 
- for the AVL tree as well. These constants can be compared this time because the Big O functions are the same (
+ for the AVL tree as well.
+ These constants can be compared this time because the Big O functions are
+ the same (
 \begin_inset Formula $O(\log{n})$
 \end_inset
 
-). In this case they have approximately the same constant, meaning that they should take approximately the same amount of time. This is significant because it shows that the overhead for the checks in restructuring are not significant. The time actually taken for restructures cannot be determined because they were not needed for this tree shape, but the checks still occurred and had no discernible impact on the Big O constant. 
+).
+ In this case they have approximately the same constant, meaning that they
+ should take approximately the same amount of time.
+ This is significant because it shows that the overhead for the checks in
+ restructuring are not significant.
+ The time actually taken for restructures cannot be determined because they
+ were not needed for this tree shape, but the checks still occurred and
+ had no discernible impact on the Big O constant.
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -1111,17 +1288,14 @@ reference "fig:Logarithmic_Big_O_AVL"
 \end_layout
 
 \begin_layout Standard
-
 \begin_inset Float figure
 placement h
 wide false
 sideways false
 status open
 
-
-\begin_layout Standard
-
-\begin_inset Graphics 
+\begin_layout Plain Layout
+\begin_inset Graphics
 	filename report/Random_Time_Per_(Binary)
 	width 11cm
 	draft
@@ -1134,7 +1308,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graph of the Time Taken per Addition for Different Input Sizes for a Random Order Added Binary Search Tree
+Graph of the Time Taken per Addition for Different Input Sizes for a Random
+ Order Added Binary Search Tree
 \end_layout
 
 \end_inset
@@ -1155,17 +1330,14 @@ name "fig:Random_Time_Per_Binary"
 \end_layout
 
 \begin_layout Standard
-
 \begin_inset Float figure
 placement h
 wide false
 sideways false
 status open
 
-
-\begin_layout Standard
-
-\begin_inset Graphics 
+\begin_layout Plain Layout
+\begin_inset Graphics
 	filename report/Random_Time_Per_(AVL)
 	width 11cm
 	draft
@@ -1178,7 +1350,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graph of the Time Taken for Different Input Sizes for a Random Order Added AVL Tree
+Graph of the Time Taken for Different Input Sizes for a Random Order Added
+ AVL Tree
 \end_layout
 
 \end_inset
@@ -1199,17 +1372,14 @@ name "fig:Random_Time_Per_AVL"
 \end_layout
 
 \begin_layout Standard
-
 \begin_inset Float figure
 placement h
 wide false
 sideways false
 status open
 
-
-\begin_layout Standard
-
-\begin_inset Graphics 
+\begin_layout Plain Layout
+\begin_inset Graphics
 	filename report/Random_Big_O_(Binary)
 	width 11cm
 	draft
@@ -1222,7 +1392,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graph of the Big O Constants for Different Input Sizes for a Random Order Added Binary Search Tree
+Graph of the Big O Constants for Different Input Sizes for a Random Order
+ Added Binary Search Tree
 \end_layout
 
 \end_inset
@@ -1243,17 +1414,14 @@ name "fig:Random_Big_O_Binary"
 \end_layout
 
 \begin_layout Standard
-
 \begin_inset Float figure
 placement h
 wide false
 sideways false
 status open
 
-
-\begin_layout Standard
-
-\begin_inset Graphics 
+\begin_layout Plain Layout
+\begin_inset Graphics
 	filename report/Random_Big_O_(AVL)
 	width 11cm
 	draft
@@ -1266,7 +1434,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Graph of the Big O Constants for Different Input Sizes for a Random Order Added AVL Tree
+Graph of the Big O Constants for Different Input Sizes for a Random Order
+ Added AVL Tree
 \end_layout
 
 \end_inset
@@ -1288,7 +1457,14 @@ name "fig:Random_Big_O_AVL"
 
 \begin_layout Standard
 \noindent
-The last tests that were run were intended to test the average case for the insertion. This case was the randomly inserted case where elements were put in the tree in no particular order. The shape of this tree before restructuring could be anywhere between logarithmic and linear. The test were run for both the binary search tree and the AVL tree. 
+The last tests that were run were intended to test the average case for
+ the insertion.
+ This case was the randomly inserted case where elements were put in the
+ tree in no particular order.
+ The shape of this tree before restructuring could be anywhere between logarithm
+ic and linear.
+ The test were run for both the binary search tree and the AVL tree.
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -1297,13 +1473,14 @@ The last tests that were run were intended to test the average case for the inse
 
 \begin_layout Standard
 \noindent
-The results for both types of trees were what was predicted. The results for the time taken per insertion for a binary search tree were 
+The results for both types of trees were what was predicted.
+ The results for the time taken per insertion for a binary search tree were
+ 
 \begin_inset Formula $O(\log{n})$
 \end_inset
 
  as can be seen in the graph in Figure
 \begin_inset space ~
-
 \end_inset
 
 
@@ -1313,7 +1490,8 @@ reference "fig:Random_Time_Per_Binary"
 
 \end_inset
 
-. Since on average the height of a binary search tree will be 
+.
+ Since on average the height of a binary search tree will be 
 \begin_inset Formula $O(\log{n})$
 \end_inset
 
@@ -1321,9 +1499,9 @@ reference "fig:Random_Time_Per_Binary"
 \begin_inset Formula $O(h)=O(\log{n})$
 \end_inset
 
-, so the results agree with the predictions. The results for the AVL tree (Figure
+, so the results agree with the predictions.
+ The results for the AVL tree (Figure
 \begin_inset space ~
-
 \end_inset
 
 
@@ -1337,11 +1515,14 @@ reference "fig:Random_Time_Per_AVL"
 \begin_inset Formula $O(\log{n})$
 \end_inset
 
-. This agrees with the theoretical analysis that operations on the AVL tree are always 
+.
+ This agrees with the theoretical analysis that operations on the AVL tree
+ are always 
 \begin_inset Formula $O(\log{n})$
 \end_inset
 
-. 
+.
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -1350,13 +1531,15 @@ reference "fig:Random_Time_Per_AVL"
 
 \begin_layout Standard
 \noindent
-The Big O constants were calculated for both the binary search tree and the AVL tree. The function that they were both compared to was 
+The Big O constants were calculated for both the binary search tree and
+ the AVL tree.
+ The function that they were both compared to was 
 \begin_inset Formula $\log{n}$
 \end_inset
 
-. The graphs of the Big O constants ((Figures
+.
+ The graphs of the Big O constants ((Figures
 \begin_inset space ~
-
 \end_inset
 
 
@@ -1368,7 +1551,6 @@ reference "fig:Random_Big_O_Binary"
 
  and
 \begin_inset space ~
-
 \end_inset
 
 
@@ -1378,7 +1560,10 @@ reference "fig:Random_Big_O_AVL"
 
 \end_inset
 
-) basically flattened out, showing that the correct Big O function was chosen. The graphs do not quite flatten out, possibly because the randomness of the inputs was not quite normalized by the input size. The Big O constant for the binary search tree was about 
+) basically flattened out, showing that the correct Big O function was chosen.
+ The graphs do not quite flatten out, possibly because the randomness of
+ the inputs was not quite normalized by the input size.
+ The Big O constant for the binary search tree was about 
 \begin_inset Formula $9*10^{-8}$
 \end_inset
 
@@ -1386,11 +1571,17 @@ reference "fig:Random_Big_O_AVL"
 \begin_inset Formula $6*10^{-8}$
 \end_inset
 
-. Since both functions are 
+.
+ Since both functions are 
 \begin_inset Formula $O(\log{n})$
 \end_inset
 
-, their Big O constants can be compared. The fact that the constant for the AVL tree is smaller than that of the binary search tree shows that the AVL tree is better on average. The cost that AVL trees take in restructuring the elements is less than the cost that the binary search tree takes in having taller trees. 
+, their Big O constants can be compared.
+ The fact that the constant for the AVL tree is smaller than that of the
+ binary search tree shows that the AVL tree is better on average.
+ The cost that AVL trees take in restructuring the elements is less than
+ the cost that the binary search tree takes in having taller trees.
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -1399,7 +1590,12 @@ reference "fig:Random_Big_O_AVL"
 
 \begin_layout Standard
 \noindent
-When comparing the performance of the insertion for either the binary search tree or the AVL tree, the worst and best cases can be determined. The results show that the worst, best, and average cases are what they were expected to be. For the binary search tree, the linear case was obviously the worst case because it was 
+When comparing the performance of the insertion for either the binary search
+ tree or the AVL tree, the worst and best cases can be determined.
+ The results show that the worst, best, and average cases are what they
+ were expected to be.
+ For the binary search tree, the linear case was obviously the worst case
+ because it was 
 \begin_inset Formula $O(n)$
 \end_inset
 
@@ -1407,7 +1603,9 @@ When comparing the performance of the insertion for either the binary search tre
 \begin_inset Formula $O(\log{n})$
 \end_inset
 
-. Looking at the remaining cases, logarithmic is the best case because it has a Big O constant of 
+.
+ Looking at the remaining cases, logarithmic is the best case because it
+ has a Big O constant of 
 \begin_inset Formula $4*10^{-8}$
 \end_inset
 
@@ -1415,11 +1613,18 @@ When comparing the performance of the insertion for either the binary search tre
 \begin_inset Formula $9*10^{-8}$
 \end_inset
 
-. The same order holds for the AVL tree. Since its insertions were all 
+.
+ The same order holds for the AVL tree.
+ Since its insertions were all 
 \begin_inset Formula $O(\log{n})$
 \end_inset
 
-, the cases can be ordered solely by Big O constants. Since the linear case has fewer inputs, it is important to measure the Big O constants around the highest input size that the linear case received, 16384. The Big O constants for the linear, logarithmic, and random cases around that point are 
+, the cases can be ordered solely by Big O constants.
+ Since the linear case has fewer inputs, it is important to measure the
+ Big O constants around the highest input size that the linear case received,
+ 16384.
+ The Big O constants for the linear, logarithmic, and random cases around
+ that point are 
 \begin_inset Formula $5.0*10^{-8}$
 \end_inset
 
@@ -1431,7 +1636,9 @@ When comparing the performance of the insertion for either the binary search tre
 \begin_inset Formula $4*10^{-8}$
 \end_inset
 
-, respectively. That means that the best case is the logarithmic case and the worst case is the linear case, as was expected.
+, respectively.
+ That means that the best case is the logarithmic case and the worst case
+ is the linear case, as was expected.
 \end_layout
 
 \begin_layout Section*
@@ -1439,7 +1646,33 @@ Conclusion
 \end_layout
 
 \begin_layout Standard
-This assignment achieved a few main goals. First and foremost, it deepened our understanding of the way maps and binary search trees work. It also introduced, in a practical way, how to use AVL trees. And it verified the theoretical discussions held in class about the performance of functions of the ADT implementation. The advantages of the AVL tree were concretely seen in the performance difference between the regular binary search tree and the AVL tree. From the timing results obtained in this assignment, it can be seen that AVL trees are better than or on par with binary search trees in every situation. Overall, this assignment as a whole gave needed practice in coding as well as reinforced concepts that were learned in class. 
+This assignment achieved a few main goals.
+ First and foremost, it deepened our understanding of the way maps and binary
+ search trees work.
+ It also introduced, in a practical way, how to use AVL trees.
+ And it verified the theoretical discussions held in class about the performance
+ of functions of the ADT implementation.
+ The advantages of the AVL tree were concretely seen in the performance
+ difference between the regular binary search tree and the AVL tree.
+ From the timing results obtained in this assignment, it can be seen that
+ AVL trees are better than or on par with binary search trees in every situation.
+ Overall, this assignment as a whole gave needed practice in coding as well
+ as reinforced concepts that were learned in class.
+ 
+\end_layout
+
+\begin_layout Standard
+This assignment showed the differences in runtime between various sorting
+ algorithms, highlighting which ones were theoretically more efficient,
+ and which ones actually performed better in practice.
+ Quicksort, like the discussions in class, consistently performed well and
+ sorted quickly; Insertion Sort and Bubble Sort ran quickly on already-sorted
+ data, but performed worse in other areas.
+ Out of the slow sorts, Insertion was the best, and Bubble was the worst
+ in most cases.
+ Out of all sorting algorithms, Quicksort and Mergesort performed similarly,
+ but Quicksort was a bit faster.
+ 
 \end_layout
 
 \end_body
