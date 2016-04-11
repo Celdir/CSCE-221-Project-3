@@ -32,12 +32,64 @@ void bubble_sort_random_sequence_k(size_t k) {
   mystl::bubble_sort(v.begin(), v.end(), less<int>());
 }
 
+void bubble_sort_already_sorted_sequence_k(size_t k) {
+  vector<int> v;
+  for(size_t i = 0; i < k; ++i)
+    v.push_back(i);
+
+  mystl::bubble_sort(v.begin(), v.end(), less<int>());
+}
+
+void bubble_sort_reverse_sorted_sequence_k(size_t k) {
+  vector<int> v;
+  for(size_t i = 0; i < k; ++i)
+    v.push_back(k-1-i);
+
+  mystl::bubble_sort(v.begin(), v.end(), less<int>());
+}
+
+void bubble_sort_few_unique_sequence_k(size_t k) {
+  vector<int> v;
+  for(size_t i = 0; i < k; ++i)
+    v.push_back(1);
+  for (size_t i = 0; i < k; i += std::log2(k))
+    v[i] = 2;
+
+  mystl::bubble_sort(v.begin(), v.end(), less<int>());
+}
+
 /// @brief Generate random sequence and selection_sort
 /// @param k Vector size
 void selection_sort_random_sequence_k(size_t k) {
   vector<int> v;
   for(size_t i = 0; i < k; ++i)
     v.push_back(rand());
+
+  mystl::selection_sort(v.begin(), v.end(), less<int>());
+}
+
+void selection_sort_already_sorted_sequence_k(size_t k) {
+  vector<int> v;
+  for(size_t i = 0; i < k; ++i)
+    v.push_back(i);
+
+  mystl::selection_sort(v.begin(), v.end(), less<int>());
+}
+
+void selection_sort_reverse_sorted_sequence_k(size_t k) {
+  vector<int> v;
+  for(size_t i = 0; i < k; ++i)
+    v.push_back(k-1-i);
+
+  mystl::selection_sort(v.begin(), v.end(), less<int>());
+}
+
+void selection_sort_few_unique_sequence_k(size_t k) {
+  vector<int> v;
+  for(size_t i = 0; i < k; ++i)
+    v.push_back(1);
+  for (size_t i = 0; i < k; i += std::log2(k))
+    v[i] = 2;
 
   mystl::selection_sort(v.begin(), v.end(), less<int>());
 }
@@ -52,6 +104,32 @@ void insertion_sort_random_sequence_k(size_t k) {
   mystl::insertion_sort(v.begin(), v.end(), less<int>());
 }
 
+void insertion_sort_already_sorted_sequence_k(size_t k) {
+  vector<int> v;
+  for(size_t i = 0; i < k; ++i)
+    v.push_back(i);
+
+  mystl::insertion_sort(v.begin(), v.end(), less<int>());
+}
+
+void insertion_sort_reverse_sorted_sequence_k(size_t k) {
+  vector<int> v;
+  for(size_t i = 0; i < k; ++i)
+    v.push_back(k-1-i);
+
+  mystl::insertion_sort(v.begin(), v.end(), less<int>());
+}
+
+void insertion_sort_few_unique_sequence_k(size_t k) {
+  vector<int> v;
+  for(size_t i = 0; i < k; ++i)
+    v.push_back(1);
+  for (size_t i = 0; i < k; i += std::log2(k))
+    v[i] = 2;
+
+  mystl::insertion_sort(v.begin(), v.end(), less<int>());
+}
+
 /// @brief Generate random sequence and quick_sort
 /// @param k Vector size
 void quick_sort_random_sequence_k(size_t k) {
@@ -62,12 +140,64 @@ void quick_sort_random_sequence_k(size_t k) {
   mystl::quick_sort(v.begin(), v.end(), less<int>());
 }
 
+void quick_sort_already_sorted_sequence_k(size_t k) {
+  vector<int> v;
+  for(size_t i = 0; i < k; ++i)
+    v.push_back(i);
+
+  mystl::quick_sort(v.begin(), v.end(), less<int>());
+}
+
+void quick_sort_reverse_sorted_sequence_k(size_t k) {
+  vector<int> v;
+  for(size_t i = 0; i < k; ++i)
+    v.push_back(k-1-i);
+
+  mystl::quick_sort(v.begin(), v.end(), less<int>());
+}
+
+void quick_sort_few_unique_sequence_k(size_t k) {
+  vector<int> v;
+  for(size_t i = 0; i < k; ++i)
+    v.push_back(1);
+  for (size_t i = 0; i < k; i += std::log2(k))
+    v[i] = 2;
+
+  mystl::quick_sort(v.begin(), v.end(), less<int>());
+}
+
 /// @brief Generate random sequence and merge_sort
 /// @param k Vector size
 void merge_sort_random_sequence_k(size_t k) {
   vector<int> v;
   for(size_t i = 0; i < k; ++i)
     v.push_back(rand());
+
+  mystl::merge_sort(v.begin(), v.end(), less<int>());
+}
+
+void merge_sort_already_sorted_sequence_k(size_t k) {
+  vector<int> v;
+  for(size_t i = 0; i < k; ++i)
+    v.push_back(i);
+
+  mystl::merge_sort(v.begin(), v.end(), less<int>());
+}
+
+void merge_sort_reverse_sorted_sequence_k(size_t k) {
+  vector<int> v;
+  for(size_t i = 0; i < k; ++i)
+    v.push_back(k-1-i);
+
+  mystl::merge_sort(v.begin(), v.end(), less<int>());
+}
+
+void merge_sort_few_unique_sequence_k(size_t k) {
+  vector<int> v;
+  for(size_t i = 0; i < k; ++i)
+    v.push_back(1);
+  for (size_t i = 0; i < k; i += std::log2(k))
+    v[i] = 2;
 
   mystl::merge_sort(v.begin(), v.end(), less<int>());
 }
@@ -110,8 +240,23 @@ void time_function(Func f, size_t max_size, string name) {
 /// @brief Main function to time all your functions
 int main() {
   time_function(bubble_sort_random_sequence_k, pow(2, 15), "Bubble Sort Random Sequence");
+  time_function(bubble_sort_already_sorted_sequence_k, pow(2, 15), "Bubble Sort Pre-sorted Sequence");
+  time_function(bubble_sort_reverse_sorted_sequence_k, pow(2, 15), "Bubble Sort Reverse Sorted Sequence");
+  time_function(bubble_sort_few_unique_sequence_k, pow(2, 15), "Bubble Sort Sequence with Few Unique Elements");
   time_function(selection_sort_random_sequence_k, pow(2, 17), "Selection Sort Random Sequence");
+  time_function(selection_sort_already_sorted_sequence_k, pow(2, 17), "Selection Sort Pre-sorted Sequence");
+  time_function(selection_sort_reverse_sorted_sequence_k, pow(2, 17), "Selection Sort Reverse Sorted Sequence");
+  time_function(selection_sort_few_unique_sequence_k, pow(2, 17), "Selection Sort Sequence with Few Unique Elements");
   time_function(insertion_sort_random_sequence_k, pow(2, 17), "Insertion Sort Random Sequence");
+  time_function(insertion_sort_already_sorted_sequence_k, pow(2, 17), "Insertion Sort Pre-sorted Sequence");
+  time_function(insertion_sort_reverse_sorted_sequence_k, pow(2, 17), "Insertion Sort Reverse Sorted Sequence");
+  time_function(insertion_sort_few_unique_sequence_k, pow(2, 17), "Insertion Sort Sequence with Few Unique Elements");
   time_function(merge_sort_random_sequence_k, pow(2, 23), "MergeSort Random Sequence");
+  time_function(merge_sort_already_sorted_sequence_k, pow(2, 23), "MergeSort Pre-sorted Sequence");
+  time_function(merge_sort_reverse_sorted_sequence_k, pow(2, 23), "MergeSort Reverse Sorted Sequence");
+  time_function(merge_sort_few_unique_sequence_k, pow(2, 23), "MergeSort Sequence with Few Unique Elements");
   time_function(quick_sort_random_sequence_k, pow(2, 23), "QuickSort Random Sequence");
+  time_function(quick_sort_already_sorted_sequence_k, pow(2, 23), "QuickSort Pre-sorted Sequence");
+  time_function(quick_sort_reverse_sorted_sequence_k, pow(2, 23), "QuickSort Reverse Sorted Sequence");
+  time_function(quick_sort_few_unique_sequence_k, pow(2, 23), "QuickSort Sequence with Few Unique Elements");
 }
