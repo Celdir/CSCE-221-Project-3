@@ -393,7 +393,49 @@ Selection Sort is
 
 \begin_layout Standard
 \noindent
-Insertion Sort 
+Insertion Sort is 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+ average and worst case, for similar reasons as Selection Sort: it will traverse a list of size 
+\begin_inset Formula $n$
+\end_inset
+
+, then size 
+\begin_inset Formula $n-1$
+\end_inset
+
+, then 
+\begin_inset Formula $n-2$
+\end_inset
+
+...
+\begin_inset Formula $n-n$
+\end_inset
+
+. Unlike Selection Sort, Insertion Sort is 
+\begin_inset Formula $O(n)$
+\end_inset
+
+, in the best case that it is already sorted, as it will only traverse the list once. 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Mergesort 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Quicksort 
 \begin_inset Newline newline
 \end_inset
 
@@ -409,11 +451,11 @@ Timing tests were conducted using the provided timing.cpp, compiled with the pro
 \begin_inset Quotes eld
 \end_inset
 
-linux.cse.tamu.edu
+michael is rad
 \begin_inset Quotes erd
 \end_inset
 
- server, with G++ version 4.7.3 (SUSE Linux) (found via g++ --version). Compilation was set to the C++11 standard, with the -G flag enabled and O2 optimization level, warnings set to -Wall -Werror (warn all and all warnings treated as compilation errors), and dependencies flagged with -MMD (auto-generate dependencies).
+ server (his laptop), with G++ version 5.3.0. Compilation was set to the C++14 standard, with the -G flag enabled and O2 optimization level, warnings set to -Wall -Werror (warn all and all warnings treated as compilation errors), and dependencies flagged with -MMD (auto-generate dependencies).
 \begin_inset Newline newline
 \end_inset
 
@@ -426,11 +468,11 @@ Tests were run on the
 \begin_inset Quotes eld
 \end_inset
 
-compute.cse.tamu.edu
+michael is rad
 \begin_inset Quotes erd
 \end_inset
 
- server, which runs Arch Linux x86_64 version 8.12 (found via arch --version and lsb_release -a). This server has 99026668 total kilobytes of RAM (found via free). It uses Intel Core i7-3970X CPUs (2 sockets, 8 cores per socket, 2 threads per core), with a clock speed of 2000 mHz (found via lscpu). Each core has a Xeon E5-2650 processor (found via lshw --short).
+ server (his laptop), which runs Arch Linux x86_64 version 8.12 (found via arch --version and lsb_release -a). This server has 99026668 total kilobytes of RAM (found via free). It uses Intel Core i7-3970X CPUs (2 sockets, 8 cores per socket, 2 threads per core), with a clock speed of 2000 mHz (found via lscpu). Each core has a Xeon E5-2650 processor (found via lshw --short).
 \begin_inset Newline newline
 \end_inset
 
@@ -440,6 +482,39 @@ compute.cse.tamu.edu
 \begin_layout Standard
 \noindent
 Timing functions output timing results for input sizes that were powers of 2, starting from 2 itself, and ending at a maximum size specified by the user. Each step of the timing was repeated 10 times, and the average of each result taken. Linear height n inserts went up to a maximum input size of 32768; logarithmic height n inserts went up to a maximum input size of 4194304, and random n inserts went up to a maximum input size of 1048576.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Four data types were used in testing: sorted data, reverse-sorted data, randomly-sorted data, and data with 
+\begin_inset Quotes eld
+\end_inset
+
+few unique elements
+\begin_inset Quotes erd
+\end_inset
+
+. For our purposes, 
+\begin_inset Quotes eld
+\end_inset
+
+data with few unique elements
+\begin_inset Quotes erd
+\end_inset
+
+ was assumed to mean 
+\begin_inset Quotes eld
+\end_inset
+
+data where a lot of the elements are the same
+\begin_inset Quotes erd
+\end_inset
+
+; the input data generated consisted mostly of 1s, with a few 2s spaced out in the data.
 \begin_inset Newline newline
 \end_inset
 

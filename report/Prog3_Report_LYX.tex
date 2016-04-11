@@ -115,7 +115,17 @@ it will always search for the smallest element, regardless of whether
 it needs to be swapped or not, and will perform all traversals.\\
 
 
-\noindent Insertion Sort is $O(oooooo)$ average and worst case.\\
+\noindent Insertion Sort is $O(n^{2})$ average and worst case, for
+similar reasons as Selection Sort: it will traverse a list of size
+$n$, then size $n-1$, then $n-2$...$n-n$. Unlike Selection Sort,
+Insertion Sort is $O(n)$, in the best case that it is already sorted,
+as it will only traverse the list once. \\
+
+
+\noindent Mergesort is $O(nlog(n))$ in all cases. \\
+
+
+\noindent Quicksort \\
 
 
 
@@ -123,14 +133,14 @@ it needs to be swapped or not, and will perform all traversals.\\
 
 Timing tests were conducted using the provided timing.cpp, compiled
 with the provided makefile's commands. Compilation was done on the
-``linux.cse.tamu.edu'' server, with G++ version 4.7.3 (SUSE Linux)
-(found via g++ --version). Compilation was set to the C++11 standard,
-with the -G flag enabled and O2 optimization level, warnings set to
--Wall -Werror (warn all and all warnings treated as compilation errors),
-and dependencies flagged with -MMD (auto-generate dependencies).\\
+``michael is rad'' server (his laptop), with G++ version 5.3.0.
+Compilation was set to the C++14 standard, with the -G flag enabled
+and O2 optimization level, warnings set to -Wall -Werror (warn all
+and all warnings treated as compilation errors), and dependencies
+flagged with -MMD (auto-generate dependencies).\\
 
 
-\noindent Tests were run on the ``compute.cse.tamu.edu'' server,
+\noindent Tests were run on the ``michael is rad'' server (his laptop),
 which runs Arch Linux x86\_64 version 8.12 (found via arch --version
 and lsb\_release -a). This server has 99026668 total kilobytes of
 RAM (found via free). It uses Intel Core i7-3970X CPUs (2 sockets,
@@ -146,6 +156,14 @@ times, and the average of each result taken. Linear height n inserts
 went up to a maximum input size of 32768; logarithmic height n inserts
 went up to a maximum input size of 4194304, and random n inserts went
 up to a maximum input size of 1048576.\\
+
+
+\noindent Four data types were used in testing: sorted data, reverse-sorted
+data, randomly-sorted data, and data with ``few unique elements''.
+For our purposes, ``data with few unique elements'' was assumed
+to mean ``data where a lot of the elements are the same''; the input
+data generated consisted mostly of 1s, with a few 2s spaced out in
+the data.\\
 
 
 \noindent timing.o was run twice: first on a tree with AVL rebalancing
